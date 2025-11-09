@@ -23,8 +23,9 @@ Section 1 - Basic system navigation
 Section 2 - Editing text files
 Section 3 - Setting up networking access
 Section 4 - Enabling swap space and ZRAM
-Section 5 - Other questions / help
-Section 6 - Contacting support
+Section 5 - How to use pacman, for users of other distros
+Section 6 - Other questions / help
+Section 7 - Contacting support
 
 
 1. Basic system navigation
@@ -221,8 +222,36 @@ RAM-intensive ones, it may be.
   6. Reboot your Wii for the changes to take effect.  If you run `swapon`
      with no parameters, you should now see '/dev/zram0' listed in it.
 
+5. How to use pacman, for users of other distros
+================================================
 
-5. Other questions / help
+This will mainly be geared towards users of Debian/Ubuntu-based distros,
+as that's by far the most common usecase.
+
+Cheat sheet of the important stuff:
+-S = Sync ("I'll be doing something from from the internet", prefix like
+           `apt install/update/upgrade/search/clean`)
+  -y = Refresh package database (like `apt update`)
+  -u = Upgrade installed packages (like `apt upgrade`), cannot be
+       used together with -s or -c
+  -s [package name] = Search for [package name] in the repos (like `apt search`)
+  -c = Remove outdated files from downloaded packages chache (like a "safer"
+                                                              `apt clean`)
+    -c = Also remove cache of currently installed packages (like `apt clean`)
+  [package name] = Install [package name] (like apt install)
+-R = Remove ("I will be removing something", prefix like apt purge/remove)
+  -n = Don't save config files (like apt purge instead of apt remove)
+  -s = Recursive (removes now-orphaned dependencies, like apt purege/remove --autoremove)
+  -c = Cascade (removes anything that depends on the targets, recursively)
+  [package name] = Remove [package name]
+-U = Install packages locally
+  ./[package file].pkg.tar.zst = Install the provided package (like apt install ./foo.deb)
+-Q = Query local package database
+  -s [keyword] = Fuzzy-search for [keyword] in package names or descriptions
+  [package name] = Search for exactly [package name]
+
+
+6. Other questions / help
 =========================
 
 Should you need help with anything else not covered in this guide, you
@@ -232,7 +261,7 @@ If it's Wii-Linux specific, or you can't find anything that helps,
 do reach out (see below).
 
 
-6. Contacting support
+7. Contacting support
 =====================
 
 Should you need help with your Wii Linux install, we're here to help!
