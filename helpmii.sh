@@ -41,7 +41,7 @@ while true; do
 			clear
 			./dumplogs.sh 2>&1 | gzip > /tmp/logs.txt.gz
 			echo "Uploading logs, please wait..."
-			curl bashupload.com -s -T /tmp/logs.txt.gz
+			curl superbeelavaman.onthewifi.com -s -T /tmp/logs.txt.gz
 			rm -f /tmp/logs.txt.gz
 			echo "Show the above text to whoever is helping you in the Wii Linux Discord server"
 			wait1key "Press any key to continue..."; echo ;;
